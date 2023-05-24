@@ -1,38 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Interview
 
-## Getting Started
+This test is a part of our hiring process at Powder for the Frontend Developer position. It should take you between 4 to 6 hours, depending on your experience, to implement the minimal version.
 
-First, run the development server:
+## Exercise
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The application must be built using [NEXT.js](https://nextjs.org/), [React](https://reactjs.org/), and [Typescript](https://www.typescriptlang.org/). We do use React/TS on our Electron/Web Apps.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You are free to choose whatever styling technology/methodology you'd like to build the application, we do use a BEM inspired methodology implemented using [SCSS](https://sass-lang.com/) & [CSS modules](https://github.com/css-modules/css-modules)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+This application must:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Match the [mockups](https://www.figma.com/file/jupkhmJX9J2ErE5O9NPOg4/Frontend---Interview) (`mockups.pdf`), but pixel-perfect is not a goal
+- Display all the videos of a given category, `See All` will be clickable
+- Allow users to play videos
+- Be responsive, it must be friendly with small & big screens
+- Be maintainable, it must allow other teammates to contribute to the code base
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+_NOTE: Rounded buttons don't have to do anything._
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Data
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can find all the data needed for the exercise here `https://assets.dev.verse-core.vrse.gg/frontend-interview/data.json` or `data.json`.
