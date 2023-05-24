@@ -8,22 +8,18 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ video, onClick }: VideoCardProps) => {
-  const { category, image, createdAt } = video;
-
-  const backgroundStyle = {
-    backgroundImage: `url(${image})`,
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-  };
+  const { image, createdAt } = video;
 
   return (
-    <div className={styles["video-card"]} onClick={onClick}>
-      <div
-        className={styles["aspect-ratio-container"]}
-        style={backgroundStyle}
-      />
-      <p className={styles["created-at"]}>{formatDate(createdAt)}</p>
+    <div className={styles.videoCard} onClick={onClick}>
+      <div className={styles.imageContainer}>
+        <img
+          alt={`video thumbnail ${createdAt}`}
+          src={image}
+          className={styles.image}
+        />
+      </div>
+      <p className={styles.label}>{formatDate(createdAt)}</p>
     </div>
   );
 };

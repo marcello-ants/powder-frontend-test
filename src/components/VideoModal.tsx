@@ -8,7 +8,8 @@ interface VideoModalProps {
 
 const VideoModal = ({ video, onClose }: VideoModalProps) => {
   if (!video) {
-    return null; // Render nothing if video is null
+    // Renders nothing if video is null
+    return null;
   }
 
   return (
@@ -19,7 +20,7 @@ const VideoModal = ({ video, onClose }: VideoModalProps) => {
           Your browser does not support the video tag.
         </video>
         <button onClick={onClose} className={styles.closeButton}>
-          Close
+          <span>X</span>
         </button>
       </div>
     </div>

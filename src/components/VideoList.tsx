@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Video } from "@/types";
-import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,8 +13,10 @@ type VideoListProps = {
 };
 
 const VideoList = ({ title, videos }: VideoListProps) => {
+  const [displayedVideos, setDisplayedVideos] = useState(videos.slice(0, 8));
+  const [expanded, setExpanded] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null); // Explicitly define the type
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   const settings = {
     dots: true,
@@ -25,25 +26,25 @@ const VideoList = ({ title, videos }: VideoListProps) => {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1580,
         settings: {
           slidesToShow: 4,
         },
       },
       {
-        breakpoint: 992,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 980,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 680,
         settings: {
           slidesToShow: 1,
         },
@@ -60,23 +61,46 @@ const VideoList = ({ title, videos }: VideoListProps) => {
     setShowModal(false);
   };
 
-  return (
-    <div>
-      <div className={styles.titleContainer}>
-        <h3 className={styles.title}>{title}</h3>
-        <Link href="/videos" className={styles.seeAllLink}>
-          See all
-        </Link>
-      </div>
-      <Slider {...settings} className={styles.VideoList}>
-        {videos.map((video) => (
-          <div key={video.createdAt}>
+  const handleOnSeeAll = () => {
+    setDisplayedVideos(videos);
+    setExpanded(true);
+  };
+
+  const renderVideos = () => {
+    return displayedVideos.map((video) => {
+      return (
+        <React.Fragment key={video.createdAt}>
+          <div className={styles.cardContainer}>
             <VideoCard video={video} onClick={() => openModal(video)} />
           </div>
-        ))}
-      </Slider>
+        </React.Fragment>
+      );
+    });
+  };
+
+  return (
+    <>
+      <div className={styles.titleContainer}>
+        <h3 className={styles.title}>{title}</h3>
+        {!expanded && (
+          <button
+            className={styles.seeAllLink}
+            onClick={() => handleOnSeeAll()}
+          >
+            See All
+          </button>
+        )}
+      </div>
+
+      {!expanded ? (
+        <Slider {...settings} className={styles.sliderList}>
+          {renderVideos()}
+        </Slider>
+      ) : (
+        <div className={styles.gridList}>{renderVideos()}</div>
+      )}
       {showModal && <VideoModal video={selectedVideo} onClose={closeModal} />}
-    </div>
+    </>
   );
 };
 
