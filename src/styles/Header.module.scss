@@ -1,0 +1,84 @@
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.header {
+  height: 140px;
+  color: #f2f6fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #848898;
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.frame {
+  display: flex;
+  flex-direction: row;
+}
+
+.tagWrapper {
+  display: flex;
+}
+
+.tag {
+  padding: 2px 8px;
+  background-color: #848898;
+  color: #1f2024;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.tag:not(:first-child) {
+  margin-left: 4px;
+}
+
+.roundButton {
+  width: 40px;
+  height: 40px;
+  background-color: #1f2024;
+  border-radius: 50px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.actionButton {
+  padding: 10px 32px;
+  background-color: #ccff00;
+  border-radius: 40px;
+  margin-right: 20px;
+  border: 2px solid gray;
+  cursor: pointer;
+
+  span {
+    color: #000000;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 17px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .roundButton {
+    display: none;
+  }
+
+  .actionButton {
+    padding: 10px 22px;
+  }
+}
