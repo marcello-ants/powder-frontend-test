@@ -1,0 +1,44 @@
+.videoList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
+  li {
+    padding: 10px;
+
+    p {
+      /* Your styles for the video item content */
+    }
+  }
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.title {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  display: flex;
+  color: #f2f6fe;
+}
+
+.seeAllLink {
+  font-family: "Graphik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ccff00;
+  cursor: pointer;
+}
